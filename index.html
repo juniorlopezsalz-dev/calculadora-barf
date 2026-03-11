@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora BARF</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f6efe7;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+width:320px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+h1{
+margin-bottom:5px;
+}
+
+p{
+color:#666;
+font-size:14px;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+width:100%;
+padding:12px;
+border:none;
+background:#e67e22;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#cf6d17;
+}
+
+.resultado{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+color:#333;
+}
+
+.whatsapp{
+margin-top:15px;
+display:inline-block;
+background:#25D366;
+color:white;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+font-size:14px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>Calculadora BARF</h1>
+<p>Descubre la ración diaria ideal para tu perro</p>
+
+<input id="peso" type="number" placeholder="Peso del perro (kg)">
+
+<select id="edad">
+<option value="adulto">Adulto</option>
+<option value="cachorro">Cachorro</option>
+<option value="senior">Senior</option>
+</select>
+
+<select id="actividad">
+<option value="normal">Actividad normal</option>
+<option value="alta">Alta actividad</option>
+<option value="baja">Baja actividad</option>
+</select>
+
+<button onclick="calcular()">Calcular</button>
+
+<div class="resultado" id="resultado"></div>
+
+<a class="whatsapp" href="https://wa.me/51999999999" target="_blank">
+Consultar por WhatsApp
+</a>
+
+</div>
+
+
+<script>
+
+function calcular(){
+
+let peso = document.getElementById("peso").value;
+let edad = document.getElementById("edad").value;
+let actividad = document.getElementById("actividad").value;
+
+let porcentaje = 0.025;
+
+if(edad == "cachorro"){
+porcentaje = 0.06;
+}
+
+if(edad == "senior"){
+porcentaje = 0.02;
+}
+
+if(actividad == "alta"){
+porcentaje += 0.005;
+}
+
+if(actividad == "baja"){
+porcentaje -= 0.005;
+}
+
+let gramos = peso * porcentaje * 1000;
+
+gramos = Math.round(gramos);
+
+document.getElementById("resultado").innerHTML =
+"Tu perro debería comer <br>" + gramos + " g diarios";
+
+}
+
+</script>
+
+</body>
+</html>
